@@ -1,0 +1,9 @@
+{
+    "name": "basic-app/module-config",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\Config\\": ""
+        }
+    }
+}
