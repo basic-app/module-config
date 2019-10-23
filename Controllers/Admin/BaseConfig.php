@@ -51,20 +51,9 @@ abstract class BaseConfig extends \BasicApp\Admin\AdminController
                 {
                     $row->$key = $value;
                 }
-            }
+            }        
 
-            $publicProperties = [];
-
-            foreach(get_object_vars($row) as $key => $value)
-            {
-                $publicProperties[$key] = $value;
-            }
-
-            $model->protect(false);
-
-            $saved = $model->save($publicProperties);
-
-            $model->protect(true);
+            $saved = $model->save($row);
 
             if ($saved)
             {
