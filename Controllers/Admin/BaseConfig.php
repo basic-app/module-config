@@ -22,6 +22,11 @@ abstract class BaseConfig extends \BasicApp\Admin\AdminController
             throw new PageNotFoundException;
         }
 
+        if (!class_exists($modelClass))
+        {
+            throw new PageNotFoundException('Class not found: ' . $modelClass);
+        }
+
         $adminOptionsMenu = AdminEvents::optionsMenu();
 
         if (isset($adminOptionsMenu[$modelClass]))
@@ -30,7 +35,7 @@ abstract class BaseConfig extends \BasicApp\Admin\AdminController
         }
         else
         {
-            $title = $class;
+            $title = $modelClass;
         }
 
         $messages = [];
