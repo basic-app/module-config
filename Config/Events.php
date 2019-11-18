@@ -5,8 +5,9 @@
  * @link http://basic-app.com
  */
 use BasicApp\System\SystemEvents;
+use BasicApp\Helpers\CliHelper;
 
-SystemEvents::onUpdate(function($event)
+SystemEvents::onSeed(function($event)
 {
     if ($event->reset)
     {
@@ -17,6 +18,6 @@ SystemEvents::onUpdate(function($event)
             throw new Exception($db->error());
         }
 
-        echo 'config table truncated' . PHP_EOL;
+        CliHelper::message('config table truncated');
     }
 });
