@@ -7,14 +7,14 @@
 use BasicApp\System\SystemEvents;
 use BasicApp\Helpers\CliHelper;
 
-SystemEvents::onSeed(function($event)
-{
-    if ($event->reset)
-    {
+SystemEvents::onSeed(function($event) {
+
+    if ($event->reset) {
+
         $db = db_connect();
 
-        if (!$db->simpleQuery('TRUNCATE TABLE configs'))
-        {
+        if (!$db->simpleQuery('TRUNCATE TABLE configs')) {
+            
             throw new Exception($db->error());
         }
 
