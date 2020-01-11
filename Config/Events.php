@@ -5,19 +5,22 @@
  * @link http://basic-app.com
  */
 use BasicApp\System\SystemEvents;
-use BasicApp\Helpers\CliHelper;
+use Config\Database;
+use BasicApp\System\Events\SystemSeedEvent;
+use BasicApp\System\Events\SystemResetEvent;
+use BasicApp\Config\Database\Seeds\ConfigSeeder;
+use BasicApp\Config\Database\Seeds\ConfigResetSeeder;
 
-SystemEvents::onSeed(function($event) {
+SystemEvents::onSeed(function(SystemSeedEvent $event) {
 
-    if ($event->reset) {
+    $seeder = Database::seeder();
 
-        $db = db_connect();
+    $seeder->call(ConfigSeeder::class);
+});
 
-        if (!$db->simpleQuery('TRUNCATE TABLE configs')) {
-            
-            throw new Exception($db->error());
-        }
+SystemEvents::onReset(function(SystemResetEvent $event) {
 
-        CliHelper::message('Truncated: configs');
-    }
+    $seeder = Database::seeder();
+
+    $seeder->call(ConfigResetSeeder::class);
 });
