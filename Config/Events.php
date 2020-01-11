@@ -6,17 +6,8 @@
  */
 use BasicApp\System\SystemEvents;
 use Config\Database;
-use BasicApp\System\Events\SystemSeedEvent;
 use BasicApp\System\Events\SystemResetEvent;
-use BasicApp\Config\Database\Seeds\ConfigSeeder;
 use BasicApp\Config\Database\Seeds\ConfigResetSeeder;
-
-SystemEvents::onSeed(function(SystemSeedEvent $event) {
-
-    $seeder = Database::seeder();
-
-    $seeder->call(ConfigSeeder::class);
-});
 
 SystemEvents::onReset(function(SystemResetEvent $event) {
 
