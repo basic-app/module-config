@@ -5,11 +5,13 @@ namespace BasicApp\Config\Models;
 class ConfigModel extends \BasicApp\Core\Model
 {
 
-    protected $table = 'config';
+    protected $table = 'configs';
 
     protected $primaryKey = 'config_id';
 
     protected $returnType = Config::class;
+
+    protected $allowedFields = ['config_class', 'config_property', 'config_value'];
 
     public function setValue(string $class, string $property, $value)
     {
