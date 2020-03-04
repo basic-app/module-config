@@ -18,7 +18,7 @@ class Migration_create_configs_table extends \BasicApp\Core\Migration
             'config_updated_at' => $this->created()->toArray(),
             'config_class' => $this->string(127)->notNull()->toArray(),
             'config_property' => $this->string(127)->notNull()->toArray(),
-            'config_value' => $this->string()->toArray()
+            'config_value' => $this->text(65535)->toArray()
         ]);
 
         $this->forge->addKey('config_id', true);
