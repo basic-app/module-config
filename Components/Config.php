@@ -12,18 +12,9 @@ use Config\Database;
 abstract class Config extends \CodeIgniter\Config\BaseConfig
 {
 
-    protected $modelClass;
-
     public function __construct()
     {
         parent::__construct();
-
-        if (!$this->modelClass)
-        {
-            throw new Exception('Property "modelClass" is not defined.');
-        }
-
-        $modelClass = $this->modelClass;
 
         $db = Database::connect();
 
