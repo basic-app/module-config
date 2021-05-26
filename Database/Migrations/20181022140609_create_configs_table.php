@@ -6,7 +6,7 @@
  */
 namespace BasicApp\Config\Database\Migrations;
 
-class Migration_create_configs_table extends \BasicApp\Core\Migration
+class Migration_create_configs_table extends \BasicApp\Migration\BaseMigration
 {
 
     public $tableName = 'configs';

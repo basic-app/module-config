@@ -5,5 +5,8 @@
         "psr-4": {
             "BasicApp\\Config\\": ""
         }
+    },
+    "require" : {
+        "basic-app/migration" : "*"
     }
 }
