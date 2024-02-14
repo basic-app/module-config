@@ -8,7 +8,6 @@ namespace BasicApp\Config\Controllers\Admin;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
 use stdClass;
-use BasicApp\Admin\AdminEvents;
 
 abstract class BaseConfig extends \BasicApp\Admin\AdminController
 {
@@ -27,7 +26,7 @@ abstract class BaseConfig extends \BasicApp\Admin\AdminController
             throw new PageNotFoundException('Class not found: ' . $modelClass);
         }
 
-        $adminOptionsMenu = AdminEvents::optionsMenu();
+        $adminOptionsMenu = adminOptionsMenu();
 
         if (isset($adminOptionsMenu[$modelClass]))
         {
